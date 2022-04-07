@@ -45,7 +45,7 @@ print('='*18, '{:^18}'.format('N/A VALUES'), '='*18, dataset.isna().sum(), sep='
 dataset = dataset.dropna()
 
 
-# One-hot encode the categorical variables ('Origin'):
+# One-hot encode the categorical variable ('Origin')
 
 dataset['Origin'] = dataset['Origin'].map({1: 'USA', 2: 'Europe', 3: 'Japan'})
 dataset = pd.get_dummies(dataset, columns=['Origin'], prefix='', prefix_sep='')
@@ -53,7 +53,7 @@ dataset = pd.get_dummies(dataset, columns=['Origin'], prefix='', prefix_sep='')
 print('='*101, '{:^101}'.format('ONE HOT ENCODING'), '='*101, dataset.tail(), sep='\n')
 
 
-# Separate the data into train and test subsets
+# Split the data into train and test sets
 
 train_dataset = dataset.sample(frac=0.8, random_state=0)
 test_dataset = dataset.drop(train_dataset.index)
